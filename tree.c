@@ -1,3 +1,7 @@
+#include "tree.h"
+#include <stdlib.h>
+#include <stdio.h>
+
 static Node* newNode(char* value, char* type)
 {
 	Node* new = (Node*)malloc(sizeof(*new));
