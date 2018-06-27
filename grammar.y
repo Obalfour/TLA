@@ -82,7 +82,7 @@ line: expr ';'
 	{
 		$$=$1;
 	}
-	| while
+	| ciclo
 	{
 		$$=$1;
 	}
