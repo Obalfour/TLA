@@ -123,7 +123,7 @@ expr: NUMBER
 		addNode($$,$1);
 		addNode($$,$3);
 	}
-	| MOD '(' expr ')'
+	| OP_MODULO '(' expr ')'
 	{
 		$$ = newNode(NULL,"mod");
 		addNode($$,$3);
