@@ -1,16 +1,17 @@
 %{
-import java.lang.Math;
-import java.io.*;
-import java.util.StringTokenizer;
+#include <stdio.h>
+#include <stdlib.h>
+#include "tree.h"
 %}
 
 %union{
 	Node node;
-
+	char* string;
+	float float;
 }
 
 %token NUMBER
-%token<char*> VARIABLE
+%token<string> VARIABLE
 %token<float> DECIMAL
 %token<node> INTEGER FLOAT
 %token<node> IF WHILE
