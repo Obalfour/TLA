@@ -8,9 +8,10 @@
 	Node node;
 	char* string;
 	float float;
+	int int;
 }
 
-%token NUMBER
+%token<int> NUMBER
 %token<string> VARIABLE
 %token<float> DECIMAL
 %token<node> INTEGER FLOAT
