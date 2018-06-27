@@ -39,14 +39,14 @@ begin: line
 		//TODO: print all lines on tree function
 	};
 
-conditional: IF '(' expr ')' line
+conditional: IF '(' expr ')' line ';'
 	{
 		$$ = newNode(NULL,if);
 		addNode($$,$3);
 		addNode($$,$5);
 	};
 
-ciclo: WHILE '(' expr ')' line
+ciclo: WHILE '(' expr ')' line ';'
 	{
 		$$ = newNode(NULL,while);
 		addNode($$,$3);
@@ -78,6 +78,14 @@ line: expr ';'
 		$$ = newNode(NULL,"multi");
 		addNode($$,$2);
 	};
+	| conditional
+	{
+		$$=$1;
+	}
+	| while
+	{
+		$$=$1;
+	}
 
 multilines: line
 	{
