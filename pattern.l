@@ -5,10 +5,6 @@
 %}
 %%
 
-[-]?[0-9]+ 				return NUMBER;
-[-]?[0-9]+[,][0-9]+		return DEC;
-[a-zA-Z][a-zA-Z0-9]*	return VARIABLE;
-
 integer					return INTEGER;
 float					return FLOAT;
 
@@ -43,4 +39,8 @@ cos    					return COS;
 tan    					return TAN;
 
 graph					return GRAFICAR;
+
+[-]?[0-9]+ 				return NUMBER;
+[-]?[0-9]+[,][0-9]+		return DEC;
+[a-zA-Z][a-zA-Z0-9]*	return VARIABLE;
 %%
