@@ -26,6 +26,8 @@
 %left LOG
 %left GRAFICAR
 
+%type<node> begin conditional ciclo line multilines expr
+
 %start begin
 
 %%
