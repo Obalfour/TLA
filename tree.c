@@ -9,6 +9,7 @@ static Node* newNode(char* value, char* type)
 	new->children = malloc( MAXNODES * sizeof(*new->children));
 	new->child = 0;
 	new->nodeType = type;
+	return new;
 }
 
 void addNode(Node* parent, Node* son)
@@ -16,7 +17,7 @@ void addNode(Node* parent, Node* son)
 	parent->children[parent->child++] = son;
 }
 
-void addTerminalNode(Node* parent, nodeType type)
+void addTerminalNode(Node* parent, char* type)
 {
 	parent->children[parent->child++] = newNode(type, NULL);
 }
@@ -28,5 +29,5 @@ void putValue(Node* node, char* value)
 
 char* getValue(Node * node)
 {
-	return node->value;
+	return node->nodeValue;
 }
