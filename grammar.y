@@ -39,9 +39,9 @@ void yyerror(const char * s);
 
 begin: line
 	{
-		Node root = $1;
+		Node * root = $1;
 //		printProgram(root);
-		puts("public class Welcome1{public static void main( String[] args ){System.out.println( "Welcome to Java Programming!" );}}");
+		puts("public class Welcome1{public static void main( String[] args ){System.out.println( \"Welcome to Java Programming!\" );}}");
 	};
 
 conditional: IF '(' expr ')' line ';'
