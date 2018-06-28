@@ -3,7 +3,7 @@ include Makefile.inc
 all: clean compiler 
 
 compiler: 
-		flex scanner.l
+		flex pattern.l
 		yacc -d grammar.y 
 		$(GCC) -o compiler lex.yy.c y.tab.c tree.c tree.h -ly $(GCCFLAGS)
 
