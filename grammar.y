@@ -56,22 +56,22 @@ ciclo: WHILE '(' expr ')' line ';'
 
 line: expr ';'
 	{
-		$$ = newNode(NULL,';');
+		$$ = newNode(NULL,";");
 		addNode($$,$1);
 	};
 	| INTEGER VARIABLE OP_ASSIGN expr ';'
 	{
-		$$ = newNode(NULL,'=');
+		$$ = newNode(NULL,"=");
 		addNode($$,$4);
 	}
 	| FLOAT VARIABLE OP_ASSIGN expr ';'
 	{
-		$$ = newNode(NULL,'=');
+		$$ = newNode(NULL,"=");
 		addNode($$,$4);
 	}
 	| VARIABLE OP_ASSIGN expr ';'
 	{
-		$$ = newNode(NULL,'=');
+		$$ = newNode(NULL,"=");
 		addNode($$,$3);
 	}
 	| '{' multilines '}'
