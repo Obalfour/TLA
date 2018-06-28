@@ -5,15 +5,15 @@
 %}
 
 %union{
-	Node node;
+	Node* node;
 	char* string;
-	float float;
-	int int;
+	float f;
+	int i;
 }
 
-%token<int> NUMBER
+%token<i> NUMBER
 %token<string> VARIABLE
-%token<float> DECIMAL
+%token<f> DECIMAL
 %token<node> INTEGER FLOAT
 %token<node> IF WHILE
 %token<node> OP_ASSIGN OP_SUM OP_SUB OP_MUL OP_DIV OP_MODULO OP_PLUS_ONE OP_SUB_ONE
