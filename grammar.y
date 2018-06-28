@@ -61,7 +61,7 @@ line: expr ';'
 	{
 		$$ = newNode(NULL,";");
 		addNode($$,$1);
-	};
+	}
 	| INTEGER VARIABLE OP_ASSIGN expr ';'
 	{
 		$$ = newNode(NULL,"=");
@@ -81,7 +81,7 @@ line: expr ';'
 	{
 		$$ = newNode(NULL,"multi");
 		addNode($$,$2);
-	};
+	}
 	| conditional
 	{
 		$$=$1;
@@ -89,7 +89,7 @@ line: expr ';'
 	| ciclo
 	{
 		$$=$1;
-	}
+	};
 
 multilines: line
 	{
