@@ -35,8 +35,9 @@
 
 begin: line
 	{
-		root = $1;
-		//TODO: print all lines on tree function
+		Node root = $1;
+//		printProgram(root);
+printf(public class Welcome1{public static void main( String[] args ){System.out.println( "Welcome to Java Programming!" );}});
 	};
 
 conditional: IF '(' expr ')' line ';'
