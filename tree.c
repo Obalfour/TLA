@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-static Node* newNode(char* value, char* type)
+Node * newNode(char* value, char* type)
 {
 	Node* new = (Node*)malloc(sizeof(*new));
 	new->nodeValue = value;
