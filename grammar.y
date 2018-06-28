@@ -4,6 +4,8 @@
 #include <stdlib.h>
 
 extern int yylex();
+extern int linenum;
+
 void yyerror(const char * s);
 
 %}
@@ -106,11 +108,17 @@ multilines: line
 
 expr: NUMBER
 	{
-		$$ = newNode($1,"int");
+		int someInt = $1;
+		char str[12];
+		sprintf(str, "%d", someInt);
+		$$ = newNode(str,"int");
 	}
 	| DEC
 	{
-		$$ = newNode($1,"float");
+		float f = $1;
+   		char c[50]; //size of the number
+    	sprintf(c, "%g", f);
+		$$ = newNode(c,"float");
 	}
 	| expr OP_SUM expr
 	{
