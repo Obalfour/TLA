@@ -156,3 +156,15 @@ expr: NUMBER
 		$$ = newNode(NULL,"tan");
 		addNode($$,$3);
 	};
+
+%%
+
+void yyerror(const char * s)
+{
+	fprintf(stderr, "Error: That operation is not supported on Se Language \n", s, linenum);
+	exit(1);
+}	
+
+int main(void){
+	yyparse();
+}	
