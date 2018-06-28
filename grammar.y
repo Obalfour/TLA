@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 extern int yylex();
+extern int linenum;
 
 void yyerror(const char * s);
 
