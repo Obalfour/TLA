@@ -43,7 +43,20 @@ tan    					return TAN;
 
 graph					return GRAFICAR;
 
-[-]?[0-9]+ 				return NUMBER;
-[-]?[0-9]+[,][0-9]+		return DEC;
-[a-zA-Z][a-zA-Z0-9]*	return VARIABLE;
+[-]?[0-9]+ 				{
+						yylval.intValue = atoi(yytext);
+						return NUMBER;
+						}
+
+
+[-]?[0-9]+[,][0-9]+		{
+						yylval.floatValue = new atof(yytext);
+						return DEC;
+						}
+						
+
+[a-zA-Z][a-zA-Z0-9]*	{
+						yylval.stringValue = strdup(yytext);
+						return VARIABLE;
+						}
 %%
