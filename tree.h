@@ -1,8 +1,8 @@
 #define MAXNODES 4
 
-typedef struct nodeStruct{
+typedef struct Node{
 	char* nodeValue;         
-	struct nodeStruct * * children;
+	struct Node * * children;
 	int child;   
  	char* nodeType;
 }Node;
