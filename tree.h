@@ -1,6 +1,6 @@
 #define MAXNODES 4
 
-typedef struct Node{
+typedef struct Node {
 	char* nodeValue;         
 	struct Node * * children;
 	int child;   

@@ -5,19 +5,19 @@
 %}
 
 %union{
-	Node* node;
-	char* string;
+	Node * node;
+	char * string;
 	float f;
 	int i;
 }
 
 %token<i> NUMBER
 %token<string> VARIABLE
-%token<f> DECIMAL
+%token<f> DEC
 %token<node> INTEGER FLOAT
 %token<node> IF WHILE
 %token<node> OP_ASSIGN OP_SUM OP_SUB OP_MUL OP_DIV OP_MODULO OP_PLUS_ONE OP_SUB_ONE
-%token<node> OP_OR OP_AND OP_NEG OP_DIST OP_LT OP_GT OP_LE OP_GE
+%token<node> OP_OR OP_AND OP_NEG OP_EQ OP_DIST OP_LT OP_GT OP_LE OP_GE
 %token<node> LOG SIN COS TAN GRAFICAR
 
 %right OP_ASSIGN
