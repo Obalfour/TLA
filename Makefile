@@ -5,7 +5,7 @@ all: clean compiler
 compiler: 
 		flex pattern.l
 		yacc -d grammar.y 
-		$(GCC) -o compiler lex.yy.c y.tab.c tree.c tree.h -ly $(GCCFLAGS)
+		$(GCC) -o compiler lex.yy.c y.tab.c tree.c -ly $(GCCFLAGS)
 
 clean: 
 	rm -rf *.o y.tab.c y.tab.h compiler lex.yy.c test1.java
