@@ -27,10 +27,10 @@ void yyerror(const char * s);
 
 %right OP_ASSIGN
 %left OP_SUM OP_SUB
-%left OP_MUL OP_DIV
-%left OP_NEG OP_AND OP_OR
-%left LOG
-%left GRAFICAR
+%left OP_MUL OP_DIV OP_MOD
+%left OP_NEG
+%left OP_AND
+%left OP_OR
 
 %type<node> begin conditional ciclo line multilines expr
 
