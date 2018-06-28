@@ -3,11 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-extern int yylex();
-extern int linenum;
-
-void yyerror(const char * s);
-
 %}
 
 %union{
@@ -171,12 +166,6 @@ expr: NUMBER
 	};
 
 %%
-
-void yyerror(const char * s)
-{
-	fprintf(stderr, "ERROR: %s line %d is not supported on Se language\n", s, linenum);
-	exit(1);
-}
 
 int main(void){
 	yyparse();
