@@ -3,6 +3,9 @@
 #include <strings.h>
 #include <stdlib.h>
 %}
+
+%option noyywrap
+
 %%
 
 integer					return INTEGER;
