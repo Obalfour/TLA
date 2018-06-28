@@ -12,6 +12,8 @@
 	int i;
 }
 
+%error-verbose
+
 %token<i> NUMBER
 %token<string> VARIABLE
 %token<f> DEC
