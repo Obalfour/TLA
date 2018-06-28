@@ -104,7 +104,7 @@ expr: NUMBER
 	{
 		$$ = newNode($1,"int");
 	}
-	| DECIMAL
+	| DEC
 	{
 		$$ = newNode($1,"float");
 	}
