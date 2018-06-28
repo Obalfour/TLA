@@ -174,7 +174,7 @@ expr: NUMBER
 
 void yyerror(const char * s)
 {
-	fprintf(stderr, "Error: That operation is not supported on Se Language \n", s, linenum);
+	fprintf(stderr, "Error: %s That operation is not supported on Se Language \n", s, linenum);
 	exit(1);
 }	
 
