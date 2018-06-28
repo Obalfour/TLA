@@ -42,14 +42,14 @@ printf(public class Welcome1{public static void main( String[] args ){System.out
 
 conditional: IF '(' expr ')' line ';'
 	{
-		$$ = newNode(NULL,if);
+		$$ = newNode(NULL,"if");
 		addNode($$,$3);
 		addNode($$,$5);
 	};
 
 ciclo: WHILE '(' expr ')' line ';'
 	{
-		$$ = newNode(NULL,while);
+		$$ = newNode(NULL,"while");
 		addNode($$,$3);
 		addNode($$,$5);
 	};
@@ -110,25 +110,25 @@ expr: NUMBER
 	}
 	| expr OP_SUM expr
 	{
-		$$ = newNode(NULL,'+');
+		$$ = newNode(NULL,"+");
 		addNode($$,$1);
 		addNode($$,$3);
 	}
 	| expr OP_SUB expr
 	{
-		$$ = newNode(NULL,'-');
+		$$ = newNode(NULL,"-");
 		addNode($$,$1);
 		addNode($$,$3);
 	}
 	| expr OP_DIV expr
 	{
-		$$ = newNode(NULL,'/');
+		$$ = newNode(NULL,"/");
 		addNode($$,$1);
 		addNode($$,$3);
 	}
 	| expr OP_MUL expr
 	{
-		$$ = newNode(NULL,'*');
+		$$ = newNode(NULL,"*");
 		addNode($$,$1);
 		addNode($$,$3);
 	}
