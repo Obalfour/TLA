@@ -71,7 +71,7 @@ line: expr ';'
 	}
 	| VARIABLE OP_ASSIGN expr ';'
 	{
-		$$ = newNode(NULL,'=')
+		$$ = newNode(NULL,'=');
 		addNode($$,$3);
 	}
 	| '{' multilines '}'
