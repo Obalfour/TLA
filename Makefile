@@ -15,4 +15,14 @@ test1:
 	javac test1.java
 	java test1
 
+test2: 
+	./compiler < test2.se > test1.java
+	javac test1.java
+	java test1
+
+test3: 
+	./compiler < test3.se > test1.java
+	javac test1.java
+	java test1		
+
 .PHONY: all test1 clean compiler	
