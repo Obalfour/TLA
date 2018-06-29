@@ -75,7 +75,7 @@ void printCode(Node * root)
             break;
 
         case ASSIGN_NODE_INT:
-        printf("integer %s = ", root->nodeValue);
+        printf("int %s = ", root->nodeValue);
         printCode(root->children[0]);
         printf(";\n");        
         	break;
