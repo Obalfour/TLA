@@ -57,8 +57,8 @@ begin: line
 future: PAUL VARIABLE VARIABLE
 	{
 		$$ = newNode(NULL,PAUL_NODE);
-		addNode($$,newNode($2, STRING_NODE);
-		addNode($$,newNode($3, STRING_NODE);
+		addNode($$,newNode($2, STRING_NODE));
+		addNode($$,newNode($3, STRING_NODE));
 	};	
 
 graphed: GRAFICAR '(' expr ')' ';'

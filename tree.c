@@ -205,7 +205,7 @@ void printCode(Node * root)
        	printf("\tSystem.out.println( \"        //\\\\\" );\n");
        	printf("\tSystem.out.println( \"     _ ((  `--'\" );\n"); 
        	printf("\tSystem.out.println( \"    (_) \\)\" );\n");
-       	printf("\tSystem.out.println( \""""""""""""""""""\" );\n"); 
+       	printf("\tSystem.out.println( \"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\"\" );\n"); 
        	printf("\tSystem.out.println( \"TRAEME LA COPA MESSI\" );\n");        	        	      	
        		break;	       		    
 
