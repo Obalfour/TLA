@@ -180,25 +180,25 @@ void printCode(Node * root)
        	printf("\tint Low = 0;\n");
        	printf("\tint High = 6;\n");
        	printf("\tString team1 = \"%s\";\n", root->children[0]->nodeValue );
-       	printf("\tSystem.out.println( \" team1 \" );\n");
+       	printf("\tSystem.out.println(  team1  );\n");
        	printf("\tint Result = r.nextInt(High-Low) + Low;\n");
-       	printf("\tSystem.out.println( \" Result \" );\n");
+       	printf("\tSystem.out.println(  Result  );\n");
        	printf("\tString team2 = \"%s\";\n", root->children[1]->nodeValue );
-       	printf("\tSystem.out.println( \" team2 \" );\n");
+       	printf("\tSystem.out.println(  team2  );\n");
        	printf("\tResult = r.nextInt(High-Low) + Low;\n");
-       	printf("\tSystem.out.println( \" Result \" );\n");
+       	printf("\tSystem.out.println(  Result  );\n");
        		break;
 
        	case MESSI_NODE:
        	printf("\tSystem.out.println( \"        ____\" );\n");
        	printf("\tSystem.out.println( \"       ( () )\" );\n");
-       	printf("\tSystem.out.println( \"       \\\\  /\" );\n");
+       	printf("\tSystem.out.println( \"        \\\\  /\" );\n");
        	printf("\tSystem.out.println( \"         ||\" );\n");
        	printf("\tSystem.out.println( \"         ||\" );\n");
        	printf("\tSystem.out.println( \"        [__]\" );\n");
        	printf("\tSystem.out.println( \"       /)  (\\\\\" );\n");
        	printf("\tSystem.out.println( \"      (( () ))\" );\n");
-       	printf("\tSystem.out.println( \"      \\\\\\\\__//\" );\n");
+       	printf("\tSystem.out.println( \"       \\\\\\\\__//\" );\n");
        	printf("\tSystem.out.println( \"        `..'\" );\n");
        	printf("\tSystem.out.println( \"         ||\" );\n");
        	printf("\tSystem.out.println( \"         ||\" );\n");
