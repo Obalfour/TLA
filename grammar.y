@@ -45,7 +45,7 @@ begin: line
 	{
 		Node * root = $1;
 		printf("import java.lang.Math;\n\n");
-		printf("import java.lang.Random;\n\n");
+		printf("import java.util.Random;\n\n");
 		printf("public class test1 {\n");
 		printf("\t public static void main(String[] args) {\n");
 		printCode(root);
