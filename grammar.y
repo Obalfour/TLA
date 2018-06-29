@@ -33,7 +33,7 @@ int yylex();
 %left OP_AND
 %left OP_OR
 
-%type<node> begin conditional ciclo line multilines expr
+%type<node> begin conditional ciclo line multilines expr graphed
 
 %start begin
 
