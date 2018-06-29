@@ -1,3 +1,4 @@
-if ( i = 4 ) {
-	i = 5;
+integer = num ;
+if ( num = 4 ) {
+	num = 5;
 }

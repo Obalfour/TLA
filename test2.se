@@ -1,6 +1,6 @@
-int i = 4;
-while( i = 4 ) {
-	i = 5;
-	i - 1;
-	i + 1;
+integer num = 4;
+while ( num = 4 ) {
+	num = 5;
+	num - 1;
+	num + 1;
 }
