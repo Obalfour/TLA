@@ -28,7 +28,10 @@ typedef enum
     LT_NODE,
     GT_NODE,
     LE_NODE,
-    GE_NODE
+    GE_NODE,
+    MESSI_NODE,
+    PAUL_NODE,
+    STRING_NODE
 } nodeType;
 
 typedef struct node {

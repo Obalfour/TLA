@@ -57,8 +57,8 @@ begin: line
 future: PAUL VARIABLE VARIABLE
 	{
 		$$ = newNode(NULL,PAUL_NODE);
-		addNode($$,$2);
-		addNode($$,$3);
+		addNode($$,newNode($2, STRING_NODE);
+		addNode($$,newNode($3, STRING_NODE);
 	};	
 
 graphed: GRAFICAR '(' expr ')' ';'
@@ -85,37 +85,37 @@ condition: expr OP_EQ expr
 	{
 		$$ = newNode(NULL,EQ_NODE);
 		addNode($$,$1);
-		addNode($$,$2);
+		addNode($$,$3);
 	}
 	| expr OP_DIST expr
 	{
 		$$ = newNode(NULL,DIST_NODE);
 		addNode($$,$1);
-		addNode($$,$2);
+		addNode($$,$3);
 	}
 	| expr OP_LT expr 
 	{
 		$$ = newNode(NULL,LT_NODE);
 		addNode($$,$1);
-		addNode($$,$2);
+		addNode($$,$3);
 	}
 	| expr OP_GT expr 
 	{
 		$$ = newNode(NULL,GT_NODE);
 		addNode($$,$1);
-		addNode($$,$2);
+		addNode($$,$3);
 	}
 	| expr OP_LE expr
 	{
 		$$ = newNode(NULL,LE_NODE);
-		addNode($$,newNode($1, STRING_NODE);
-		addNode($$,newNode($2, STRING_NODE);
+		addNode($$,$1);
+		addNode($$,$3);
 	}
 	| expr OP_GE expr
 	{
 		$$ = newNode(NULL,GE_NODE);
 		addNode($$,$1);
-		addNode($$,$2);
+		addNode($$,$3);
 	};
 
 line: expr ';'

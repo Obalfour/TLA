@@ -173,7 +173,41 @@ void printCode(Node * root)
 		printCode(root->children[0]);
 		printf(" >= ");
 		printCode(root->children[1]);       	
-       		break;    
+       		break;
+
+       	case PAUL_NODE:
+       	printf("\tRandom r = new Random();\n");
+       	printf("\tint Low = 0;\n");
+       	printf("\tint High = 6;\n");
+       	printf("\tString team1 = %s;\n", root->children[0]->nodeValue );
+       	printf("\tSystem.out.println( \" team1 \" );\n");
+       	printf("\tint Result = r.nextInt(High-Low) + Low;\n");
+       	printf("\tSystem.out.println( \" Result \" );\n");
+       	printf("\tString team2 = %s;\n", root->children[1]->nodeValue );
+       	printf("\tSystem.out.println( \" team2 \" );\n");
+       	printf("\tint Result = r.nextInt(High-Low) + Low;\n");
+       	printf("\tSystem.out.println( \" Result \" );\n");
+       		break;
+
+       	case MESSI_NODE:
+       	printf("\tSystem.out.println( \"        ____\" );\n");
+       	printf("\tSystem.out.println( \"       ( () )\" );\n");
+       	printf("\tSystem.out.println( \"       \\  /\" );\n");
+       	printf("\tSystem.out.println( \"         ||\" );\n");
+       	printf("\tSystem.out.println( \"         ||\" );\n");
+       	printf("\tSystem.out.println( \"        [__]\" );\n");
+       	printf("\tSystem.out.println( \"       /)  (\\\" );\n");
+       	printf("\tSystem.out.println( \"      (( () ))\" );\n");
+       	printf("\tSystem.out.println( \"      \\\\__//\" );\n");
+       	printf("\tSystem.out.println( \"        `..'\" );\n");
+       	printf("\tSystem.out.println( \"         ||\" );\n");
+       	printf("\tSystem.out.println( \"         ||\" );\n");
+       	printf("\tSystem.out.println( \"        //\\\\\" );\n");
+       	printf("\tSystem.out.println( \"     _ ((  `--'\" );\n"); 
+       	printf("\tSystem.out.println( \"    (_) \\)\" );\n");
+       	printf("\tSystem.out.println( \""""""""""""""""""\" );\n"); 
+       	printf("\tSystem.out.println( \"TRAEME LA COPA MESSI\" );\n");        	        	      	
+       		break;	       		    
 
 		case MOD_NODE:
 		printf("  Math.abs( (float) %s ) ", root->children[0]->nodeValue );
