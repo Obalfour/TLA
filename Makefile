@@ -23,6 +23,16 @@ test2:
 test3: 
 	./compiler < test3.se > test1.java
 	javac test1.java
-	java test1		
+	java test1	
+
+test4: 
+	./compiler < test4.se > test1.java
+	javac test1.java
+	java test1	
+
+test5: 
+	./compiler < test5.se > test1.java
+	javac test1.java
+	java test1				
 
 .PHONY: all test1 clean compiler	
