@@ -60,7 +60,8 @@ graph					return GRAFICAR;
 						return VARIABLE;
 						}
 
-[-+*/\n] 				{ return *yytext; }
+[-+()<>=/*{};.] 	{return *yytext;}
+[ \t\n]         		;
 . 						{ yyerror("unrecognized character"); return 0; }	
-					
+
 %%
