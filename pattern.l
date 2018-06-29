@@ -59,4 +59,8 @@ graph					return GRAFICAR;
 						yylval.string = strdup(yytext);
 						return VARIABLE;
 						}
+
+[-+*/\n] 				{ return *yytext; }
+. 						{ yyerror("unrecognized character"); return 0; }	
+					
 %%
