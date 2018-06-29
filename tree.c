@@ -20,7 +20,7 @@ void addNode(Node* parent, Node* son)
 
 void addTerminalNode(Node* parent, nodeType type)
 {
-	parent->children[parent->child++] = newNode(type, NULL);
+	parent->children[parent->child++] = newNode(NULL,type);
 }
 
 void putValue(Node* node, char* value)
@@ -34,6 +34,7 @@ char* getValue(Node * node)
 }
 
 void printNextLines(Node * root){
+	int i;
     Node *prev = root;
 
     for(i=0; i<prev->child ;i++){
