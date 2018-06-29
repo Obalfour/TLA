@@ -67,14 +67,14 @@ graphed: GRAFICAR '(' expr ')' ';'
 		addNode($$,$3);
 	};	
 
-conditional: IF '(' condition ')' line ';'
+conditional: IF '(' condition ')' line
 	{
 		$$ = newNode(NULL,IF_NODE);
 		addNode($$,$3);
 		addNode($$,$5);
 	};
 
-ciclo: WHILE '(' condition ')' line ';'
+ciclo: WHILE '(' condition ')' line
 	{
 		$$ = newNode(NULL,WHILE_NODE);
 		addNode($$,$3);
