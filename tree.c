@@ -139,6 +139,42 @@ void printCode(Node * root)
 		printCode(root->children[1]);
             break;
 
+        case EQ_NODE:
+		printCode(root->children[0]);
+		printf(" == ");
+		printCode(root->children[1]);        
+        	break;
+
+        case DIST_NODE:
+		printCode(root->children[0]);
+		printf(" != ");
+		printCode(root->children[1]);        
+        	break;
+
+       	case LT_NODE:
+		printCode(root->children[0]);
+		printf(" < ");
+		printCode(root->children[1]);       	
+       		break;
+
+       	case GT_NODE:
+		printCode(root->children[0]);
+		printf(" > ");
+		printCode(root->children[1]);       	
+       		break;
+
+       	case LE_NODE:
+		printCode(root->children[0]);
+		printf(" <= ");
+		printCode(root->children[1]);       	
+       		break;
+
+       	case GE_NODE:
+		printCode(root->children[0]);
+		printf(" >= ");
+		printCode(root->children[1]);       	
+       		break;    
+
 		case MOD_NODE:
 		printf("  Math.abs( (float) %s ) ", root->children[0]->nodeValue );
             break;

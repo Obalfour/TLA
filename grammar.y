@@ -23,7 +23,7 @@ int yylex();
 %token<string> VARIABLE
 %token<f> DEC
 %token<node> INTEGER FLOAT
-%token<node> IF WHILE
+%token<node> IF WHILE MESSI PAUL
 %token<node> OP_ASSIGN OP_SUM OP_SUB OP_MUL OP_DIV OP_MODULO OP_PLUS_ONE OP_SUB_ONE
 %token<node> OP_OR OP_AND OP_NEG OP_EQ OP_DIST OP_LT OP_GT OP_LE OP_GE
 %token<node> LOG SIN COS TAN GRAFICAR
@@ -35,7 +35,7 @@ int yylex();
 %left OP_AND
 %left OP_OR
 
-%type<node> begin conditional ciclo line multilines expr graphed
+%type<node> begin conditional ciclo line multilines expr graphed condition future
 
 %start begin
 
@@ -45,6 +45,7 @@ begin: line
 	{
 		Node * root = $1;
 		printf("import java.lang.Math;\n\n");
+		printf("import java.lang.Random;\n\n");
 		printf("public class test1 {\n");
 		printf("\t public static void main(String[] args) {\n");
 		printCode(root);
@@ -53,24 +54,68 @@ begin: line
 //		printf("public class test1{public static void main( String[] args ){System.out.println( \"Welcome to Java Programming!\" );}}");
 	};
 
+future: PAUL VARIABLE VARIABLE
+	{
+		$$ = newNode(NULL,PAUL_NODE);
+		addNode($$,$2);
+		addNode($$,$3);
+	};	
+
 graphed: GRAFICAR '(' expr ')' ';'
 	{
 		$$ = newNode(NULL,GRAPH_NODE);
 		addNode($$,$3);
 	};	
 
-conditional: IF '(' expr ')' line ';'
+conditional: IF '(' condition ')' line ';'
 	{
 		$$ = newNode(NULL,IF_NODE);
 		addNode($$,$3);
 		addNode($$,$5);
 	};
 
-ciclo: WHILE '(' expr ')' line ';'
+ciclo: WHILE '(' condition ')' line ';'
 	{
 		$$ = newNode(NULL,WHILE_NODE);
 		addNode($$,$3);
 		addNode($$,$5);
+	};
+
+condition: expr OP_EQ expr
+	{
+		$$ = newNode(NULL,EQ_NODE);
+		addNode($$,$1);
+		addNode($$,$2);
+	}
+	| expr OP_DIST expr
+	{
+		$$ = newNode(NULL,DIST_NODE);
+		addNode($$,$1);
+		addNode($$,$2);
+	}
+	| expr OP_LT expr 
+	{
+		$$ = newNode(NULL,LT_NODE);
+		addNode($$,$1);
+		addNode($$,$2);
+	}
+	| expr OP_GT expr 
+	{
+		$$ = newNode(NULL,GT_NODE);
+		addNode($$,$1);
+		addNode($$,$2);
+	}
+	| expr OP_LE expr
+	{
+		$$ = newNode(NULL,LE_NODE);
+		addNode($$,newNode($1, STRING_NODE);
+		addNode($$,newNode($2, STRING_NODE);
+	}
+	| expr OP_GE expr
+	{
+		$$ = newNode(NULL,GE_NODE);
+		addNode($$,$1);
+		addNode($$,$2);
 	};
 
 line: expr ';'
@@ -101,6 +146,14 @@ line: expr ';'
 	| conditional
 	{
 		$$=$1;
+	}
+	| MESSI ';'
+	{
+		$$ = newNode(NULL,MESSI_NODE);
+	}
+	| future ';'
+	{
+		$$ = $1;
 	}
 	| ciclo
 	{

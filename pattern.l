@@ -18,6 +18,10 @@ if						return IF;
  	
 while					return WHILE;
 
+messi					return MESSI;
+
+pulpopaul				return PAUL;
+
 "="						return OP_ASSIGN;
 "+"						return OP_SUM;
 "-"						return OP_SUB;

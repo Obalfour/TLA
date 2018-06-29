@@ -22,7 +22,13 @@ typedef enum
     SIN_NODE,
     COS_NODE,
     TAN_NODE,
-    GRAPH_NODE
+    GRAPH_NODE,
+    EQ_NODE,
+    DIST_NODE,
+    LT_NODE,
+    GT_NODE,
+    LE_NODE,
+    GE_NODE
 } nodeType;
 
 typedef struct node {
