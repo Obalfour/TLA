@@ -13,5 +13,6 @@ clean:
 test1: 
 	./compiler < test1.se > test1.java
 	javac test1.java
+	java test1
 
 .PHONY: all test1 clean compiler	
