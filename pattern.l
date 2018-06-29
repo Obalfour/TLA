@@ -50,7 +50,7 @@ graph					return GRAFICAR;
 
 
 [-]?[0-9]+[,][0-9]+		{
-						yylval.f = new atof(yytext);
+						yylval.f = atof(yytext);
 						return DEC;
 						}
 
