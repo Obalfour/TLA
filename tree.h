@@ -29,7 +29,7 @@ typedef struct node {
 	char* nodeValue;         
 	struct node * * children;
 	int child;   
- 	char* nodeType;
+ 	nodeType nType;
 }Node;
 
 Node * newNode(char* value, nodeType type);

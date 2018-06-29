@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+extern int yylineno;
+
 void yyerror(const char *s);
 int yylex();
 

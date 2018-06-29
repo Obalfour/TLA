@@ -9,7 +9,7 @@ Node * newNode(char* value, nodeType type)
 	new->nodeValue = value;
 	new->children = malloc( MAXNODES * sizeof(*new->children));
 	new->child = 0;
-	new->nodeType = type;
+	new->nType = type;
 	return new;
 }
 
@@ -34,7 +34,7 @@ char* getValue(Node * node)
 }
 
 void printNextLines(Node * root){
-    statementNode *prev = root;
+    Node *prev = root;
 
     for(i=0; i<prev->child ;i++){
 		root = prev->children[i];
@@ -51,7 +51,7 @@ void printCode(Node * root)
     	return;
     }
     
-    switch (root->type)
+    switch (root->nType)
     {
 
         case IF_NODE:
@@ -166,3 +166,4 @@ void printCode(Node * root)
             break;
     }
 }
+

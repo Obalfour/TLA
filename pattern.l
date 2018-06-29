@@ -2,6 +2,8 @@
 #include "y.tab.h"
 #include <strings.h>
 #include <stdlib.h>
+
+void yyerror(const char *errstr, ...);
 %}
 
 %option noyywrap
