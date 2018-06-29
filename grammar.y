@@ -3,6 +3,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void yyerror(const char *s);
+int yylex();
+
 %}
 
 %union{
@@ -39,47 +42,58 @@
 begin: line
 	{
 		Node * root = $1;
-//		printProgram(root);
-		printf("public class test1{public static void main( String[] args ){System.out.println( \"Welcome to Java Programming!\" );}}");
+		printf("import java.lang.Math;\n\n");
+		printf("public class test1 {\n");
+		printf("\t public static void main(String[] args) {\n");
+		printCode(root);
+		printf("\t}\n}\n");
+
+//		printf("public class test1{public static void main( String[] args ){System.out.println( \"Welcome to Java Programming!\" );}}");
 	};
+
+graphed: GRAFICAR '(' expr ')' ';'
+	{
+		$$ = newNode(NULL,GRAPH_NODE);
+		addNode($$,$3);
+	};	
 
 conditional: IF '(' expr ')' line ';'
 	{
-		$$ = newNode(NULL,"if");
+		$$ = newNode(NULL,IF_NODE);
 		addNode($$,$3);
 		addNode($$,$5);
 	};
 
 ciclo: WHILE '(' expr ')' line ';'
 	{
-		$$ = newNode(NULL,"while");
+		$$ = newNode(NULL,WHILE_NODE);
 		addNode($$,$3);
 		addNode($$,$5);
 	};
 
 line: expr ';'
 	{
-		$$ = newNode(NULL,";");
+		$$ = newNode(NULL,LINE_NODE);
 		addNode($$,$1);
 	}
 	| INTEGER VARIABLE OP_ASSIGN expr ';'
 	{
-		$$ = newNode(NULL,"=");
+		$$ = newNode($2,ASSIGN_NODE_INT);
 		addNode($$,$4);
 	}
 	| FLOAT VARIABLE OP_ASSIGN expr ';'
 	{
-		$$ = newNode(NULL,"=");
+		$$ = newNode($2,ASSIGN_NODE_F);
 		addNode($$,$4);
 	}
 	| VARIABLE OP_ASSIGN expr ';'
 	{
-		$$ = newNode(NULL,"=");
+		$$ = newNode($1,ASSIGN_NODE);
 		addNode($$,$3);
 	}
 	| '{' multilines '}'
 	{
-		$$ = newNode(NULL,"multi");
+		$$ = newNode(NULL,KEYS_NODE);
 		addNode($$,$2);
 	}
 	| conditional
@@ -89,16 +103,20 @@ line: expr ';'
 	| ciclo
 	{
 		$$=$1;
+	}
+	| graphed
+	{
+		$$=$1;
 	};
 
 multilines: line
 	{
-		$$ = newNode(NULL,"multi");
+		$$ = newNode(NULL,MULTI_NODE1);
 		addNode($$,$1);
 	}
 	| line multilines
 	{
-		$$ = newNode(NULL,"multi");
+		$$ = newNode(NULL,MULTI_NODE2);
 		addNode($$,$1);
 		addNode($$,$2);
 	};
@@ -108,66 +126,75 @@ expr: NUMBER
 		int someInt = $1;
 		char str[12];
 		sprintf(str, "%d", someInt);
-		$$ = newNode(str,"int");
+		$$ = newNode(str,INTEGER_NODE);
 	}
 	| DEC
 	{
 		float f = $1;
    		char c[50]; //size of the number
     	sprintf(c, "%g", f);
-		$$ = newNode(c,"float");
+		$$ = newNode(c,FLOAT_NODE);
 	}
 	| expr OP_SUM expr
 	{
-		$$ = newNode(NULL,"+");
+		$$ = newNode(NULL,PLUS_NODE);
 		addNode($$,$1);
 		addNode($$,$3);
 	}
 	| expr OP_SUB expr
 	{
-		$$ = newNode(NULL,"-");
+		$$ = newNode(NULL,SUB_NODE);
 		addNode($$,$1);
 		addNode($$,$3);
 	}
 	| expr OP_DIV expr
 	{
-		$$ = newNode(NULL,"/");
+		$$ = newNode(NULL,DIV_NODE);
 		addNode($$,$1);
 		addNode($$,$3);
 	}
 	| expr OP_MUL expr
 	{
-		$$ = newNode(NULL,"*");
+		$$ = newNode(NULL,PROD_NODE);
 		addNode($$,$1);
 		addNode($$,$3);
 	}
 	| OP_MODULO '(' expr ')'
 	{
-		$$ = newNode(NULL,"mod");
+		$$ = newNode(NULL,MOD_NODE);
 		addNode($$,$3);
 	}
 	| LOG '(' expr ')'
 	{
-		$$ = newNode(NULL,"log");
+		$$ = newNode(NULL,LOG_NODE);
 		addNode($$,$3);
 	}
 	| SIN '(' expr ')'
 	{
-		$$ = newNode(NULL,"sin");
+		$$ = newNode(NULL,SIN_NODE);
 		addNode($$,$3);
 	}
 	| COS '(' expr ')'
 	{
-		$$ = newNode(NULL,"cos");
+		$$ = newNode(NULL,COS_NODE);
 		addNode($$,$3);
 	}
 	| TAN '(' expr ')'
 	{
-		$$ = newNode(NULL,"tan");
+		$$ = newNode(NULL,TAN_NODE);
 		addNode($$,$3);
 	};
 
 %%
+
+void yyerror(const char * s)
+{
+	fprintf(stderr, "Error %s. The line %d is not supported on Se Language\n", s, yylineno-1);
+}
+
+int yywrap(){
+	return 1;
+}
 
 int main(void){
 	yyparse();

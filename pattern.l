@@ -5,6 +5,7 @@
 %}
 
 %option noyywrap
+%option yylineno
 
 %%
 
@@ -60,7 +61,7 @@ graph					return GRAFICAR;
 						return VARIABLE;
 						}
 
-[-+()<>=/*{};.] 	{return *yytext;}
+[-+()<>=/*{};.] 		{return *yytext;}
 [ \t\n]         		;
 . 						{ yyerror("unrecognized character"); return 0; }	
 
