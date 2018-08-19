@@ -1,2 +1,2 @@
 # TLA
-Compiler for Se language made for a couse assignment @ITBA TLA
+Se language compiler made for a couse assignment @ITBA TLA
